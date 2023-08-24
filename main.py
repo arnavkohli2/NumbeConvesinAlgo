@@ -1,7 +1,7 @@
 import random
 
 def custom_conversion(number):
-    if 0 <= number <= 100000:
+    if 0 <= number <= 255:
         binary_representation = ""
         if number == 0:
             binary_representation = "0"
@@ -19,6 +19,8 @@ def custom_conversion(number):
 
 num = random.randint(-100000, 100000)
 
+num1 = 12
+
 converted_value = custom_conversion(num)
-print("Random num:", num)
+print("Random num:", num1)
 print("Converted num:", converted_value)
