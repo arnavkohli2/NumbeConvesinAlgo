@@ -1,6 +1,16 @@
 import random
 
-def custom_conversion(number):
+
+def conversion(number):
+    def hexadecimalconv(number):
+        hex_chars = "0123456789ABCDEF"
+        hexadecimal_representation = ""
+        while number > 0:
+            remainder = number % 16
+            hexadecimal_representation = hex_chars[remainder] + hexadecimal_representation
+            number //= 16
+        return hexadecimal_representation
+
     if 0 <= number <= 127:
         binary_representation = ""
         if number == 0:
@@ -10,17 +20,11 @@ def custom_conversion(number):
             number //= 2
         return '-' + binary_representation if number < 0 else binary_representation
     else:
-        hexadecimal_representation = ""
-        while number > 0:
-            remainder = number % 16
-            hexadecimal_representation = hex(remainder)[2:].upper() + hexadecimal_representation
-            number //= 16
-        return hexadecimal_representation
+        return hexadecimalconv(number)
+
 
 num = random.randint(0, 100000)
 
-
-
-converted_value = custom_conversion(num)
+converted_value = conversion(num)
 print("Random num:", num)
 print("Converted num:", converted_value)
